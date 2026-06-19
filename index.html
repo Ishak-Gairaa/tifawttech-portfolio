@@ -1,0 +1,1987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TifawtTech | ERP Solutions Portfolio</title>
+  <meta name="description" content="TifawtTech develops ERP systems for finance, inventory, sales, HR, and reporting, helping businesses move from manual workflows to one connected platform." />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --navy: #0b1220;
+      --green-dark: #14532d;
+      --green-main: #15803d;
+      --green-mid: #16a34a;
+      --green-light: #22c55e;
+      --page-bg: #f0fdf4;
+      --soft-green: #dcfce7;
+      --soft-green-2: #ecfdf5;
+      --text: #0f172a;
+      --muted: #64748b;
+      --card: #ffffff;
+      --border: #d1fae5;
+      --yellow: #fefce8;
+      --red: #fef2f2;
+      --shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+      --soft-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--page-bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.93);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 18px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      font-size: 1.2rem;
+      white-space: nowrap;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--green-main), var(--green-light));
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      box-shadow: 0 12px 24px rgba(21, 128, 61, 0.28);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 18px;
+      color: #334155;
+      font-size: 0.88rem;
+      font-weight: 700;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a:hover {
+      color: var(--green-main);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 20px;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: 0.25s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-size: 0.96rem;
+    }
+
+    .btn-primary {
+      background: var(--green-main);
+      color: white;
+      box-shadow: 0 12px 25px rgba(21, 128, 61, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: var(--green-dark);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--navy);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      border-color: var(--green-main);
+      color: var(--green-main);
+    }
+
+    .hero {
+      padding: 90px 0 70px;
+      background:
+        radial-gradient(circle at top right, rgba(34, 197, 94, 0.18), transparent 36%),
+        linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      background: var(--soft-green);
+      color: #166534;
+      border: 1px solid #bbf7d0;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4.8rem);
+      line-height: 1.02;
+      letter-spacing: -2px;
+      margin-bottom: 22px;
+      color: var(--navy);
+    }
+
+    .hero p {
+      font-size: 1.12rem;
+      color: #475569;
+      max-width: 650px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 34px;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 620px;
+    }
+
+    .metric {
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.4rem;
+      color: var(--navy);
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .visual-card {
+      background: var(--navy);
+      color: white;
+      border-radius: 32px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .visual-card img {
+      width: 100%;
+      min-height: 420px;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 24px;
+      display: block;
+      opacity: 0.92;
+    }
+
+    section {
+      padding: 82px 0;
+    }
+
+    .section-title {
+      max-width: 800px;
+      margin-bottom: 38px;
+    }
+
+    .section-title span {
+      color: var(--green-main);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.82rem;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      letter-spacing: -1.2px;
+      line-height: 1.1;
+      margin: 8px 0 14px;
+      color: var(--navy);
+    }
+
+    .section-title p,
+    .text-muted {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .summary {
+      background: white;
+    }
+
+    .summary-card {
+      background: linear-gradient(135deg, #0b1220, #14532d);
+      color: white;
+      border-radius: 30px;
+      padding: 42px;
+      box-shadow: var(--shadow);
+    }
+
+    .summary-card p {
+      color: #d1fae5;
+      font-size: 1.08rem;
+      margin-bottom: 18px;
+    }
+
+    .profile-section {
+      background: white;
+    }
+
+    .profile-grid,
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .profile-card,
+    .info-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: var(--soft-shadow);
+    }
+
+    .profile-card h3,
+    .info-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+
+    .profile-facts {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .fact-box {
+      background: var(--soft-green-2);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .fact-box strong {
+      display: block;
+      color: #166534;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .fact-box span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .services {
+      background: var(--soft-green-2);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 26px;
+      transition: 0.25s ease;
+      min-height: 230px;
+      box-shadow: var(--soft-shadow);
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: var(--soft-green);
+      color: var(--green-main);
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+    }
+
+    .icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .service-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.18rem;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .product-card {
+      background: linear-gradient(135deg, #14532d, #166534);
+      color: white;
+      border-radius: 30px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100%;
+    }
+
+    .product-card h3 {
+      font-size: 1.8rem;
+      line-height: 1.15;
+    }
+
+    .product-card p {
+      color: #dcfce7;
+      margin: 16px 0 22px;
+      font-size: 1.04rem;
+    }
+
+    .product-points {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .product-point {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 16px;
+      font-weight: 800;
+    }
+
+    .product-visual {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 18px;
+      box-shadow: var(--soft-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .product-visual img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 22px;
+      display: block;
+    }
+
+    .product-modules {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .product-module {
+      background: var(--soft-green-2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+      font-weight: 800;
+      color: #166534;
+    }
+
+    .stack {
+      background: var(--navy);
+      color: white;
+    }
+
+    .stack .section-title h2 {
+      color: white;
+    }
+
+    .stack .section-title p {
+      color: #cbd5e1;
+    }
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .stack-item {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 22px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .stack-item strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .stack-item span {
+      color: #cbd5e1;
+      font-size: 0.9rem;
+    }
+
+    .team-grid,
+    .case-grid,
+    .opinions-grid,
+    .writing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .team-card,
+    .case-card,
+    .opinion-card,
+    .writing-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: var(--soft-shadow);
+    }
+
+    .avatar {
+      width: 78px;
+      height: 78px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--green-main), var(--green-light));
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .team-card h3 {
+      font-size: 1.45rem;
+    }
+
+    .role {
+      color: var(--green-main);
+      font-weight: 900;
+      margin: 4px 0 14px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .chip,
+    .opinion-badge,
+    .writing-badge,
+    .insight-tag {
+      background: var(--soft-green-2);
+      color: #166534;
+      border: 1px solid #bbf7d0;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      display: inline-block;
+    }
+
+    .matrix {
+      margin-top: 28px;
+      overflow-x: auto;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--soft-shadow);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 620px;
+    }
+
+    th, td {
+      padding: 18px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background: #f8fafc;
+      color: #334155;
+    }
+
+    td:not(:first-child) {
+      text-align: center;
+      font-weight: 900;
+      color: var(--green-mid);
+    }
+
+    .insights,
+    .opinions-section {
+      background: var(--page-bg);
+    }
+
+    .insights-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .insight-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--soft-shadow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .insight-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .insight-body {
+      padding: 22px;
+    }
+
+    .insight-card h3 {
+      font-size: 1.15rem;
+      margin: 12px 0 10px;
+    }
+
+    .insight-card p {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .poster-section {
+      background: white;
+    }
+
+    .poster-shell {
+      background: linear-gradient(135deg, #14532d, #166534 52%, #15803d);
+      border-radius: 34px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+      color: white;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .poster-shell::before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      top: -90px;
+      right: -70px;
+    }
+
+    .poster-header {
+      position: relative;
+      z-index: 2;
+      margin-bottom: 26px;
+    }
+
+    .poster-header span {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #dcfce7;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .poster-header h2 {
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .poster-header p {
+      color: #dcfce7;
+      max-width: 760px;
+      font-size: 1.02rem;
+    }
+
+    .poster-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .poster-column {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 26px;
+      padding: 26px;
+      backdrop-filter: blur(6px);
+    }
+
+    .poster-column h3 {
+      font-size: 1.35rem;
+      margin-bottom: 16px;
+    }
+
+    .poster-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .poster-item {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 14px 16px;
+    }
+
+    .poster-item strong {
+      display: block;
+      margin-bottom: 4px;
+      color: white;
+      font-size: 0.98rem;
+    }
+
+    .poster-item span {
+      color: #dcfce7;
+      font-size: 0.92rem;
+    }
+
+    .poster-footer {
+      position: relative;
+      z-index: 2;
+      margin-top: 22px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 22px;
+      padding: 18px 20px;
+      color: #ecfdf5;
+      font-weight: 700;
+    }
+
+    .opinion-meta,
+    .writing-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .opinion-author,
+    .writing-author {
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 0.92rem;
+    }
+
+    .opinion-card h3,
+    .writing-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 14px;
+      line-height: 1.25;
+      color: var(--navy);
+    }
+
+    .opinion-card p,
+    .writing-card p {
+      color: #334155;
+      margin-bottom: 14px;
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    .new-writing-section {
+      background: white;
+    }
+
+    .traffic-section {
+      background: white;
+    }
+
+    .traffic-intro {
+      background: var(--soft-green-2);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 22px;
+      color: #334155;
+      margin-bottom: 28px;
+      max-width: 930px;
+    }
+
+    .ai-case-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 28px;
+      margin-bottom: 28px;
+      box-shadow: var(--soft-shadow);
+    }
+
+    .case-tag {
+      display: inline-block;
+      background: var(--soft-green);
+      color: #166534;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 900;
+      letter-spacing: 0.4px;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+
+    .ai-case-card h3 {
+      font-size: 1.55rem;
+      margin-bottom: 14px;
+      color: var(--navy);
+    }
+
+    .ai-case-card p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #334155;
+      margin-bottom: 16px;
+    }
+
+    .toggle-btn {
+      background: white;
+      color: var(--green-dark);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 14px 22px;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .toggle-btn:hover {
+      background: var(--soft-green-2);
+      transform: translateY(-1px);
+    }
+
+    .case-result {
+      display: none;
+      margin-top: 22px;
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    .case-result h4 {
+      font-size: 1.3rem;
+      margin-bottom: 14px;
+    }
+
+    .case-result p {
+      margin-bottom: 12px;
+      color: #111827;
+    }
+
+    .case-result.green {
+      background: #8dd04f;
+    }
+
+    .case-result.yellow {
+      background: #f4df72;
+    }
+
+    .case-result.red {
+      background: #f6a5a5;
+    }
+
+    .case-result.show {
+      display: block;
+    }
+
+    .cases {
+      background: var(--soft-green-2);
+    }
+
+    .case-card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 14px;
+    }
+
+    .star-block {
+      margin: 18px 0;
+      padding-left: 16px;
+      border-left: 4px solid #86efac;
+    }
+
+    .star-block strong {
+      color: var(--green-main);
+    }
+
+    .results {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .result-box {
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #bbf7d0;
+      border-radius: 16px;
+      padding: 14px;
+      text-align: center;
+      font-weight: 900;
+    }
+
+    .result-box span {
+      display: block;
+      color: #047857;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .contact {
+      background: linear-gradient(135deg, #0b1220, #14532d);
+      color: white;
+    }
+
+    .contact .section-title h2 {
+      color: white;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .contact p {
+      color: #d1fae5;
+    }
+
+    .contact-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 28px;
+      padding: 30px;
+    }
+
+    .contact-line {
+      margin: 16px 0;
+      font-weight: 800;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    input, textarea {
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border-radius: 16px;
+      padding: 15px;
+      font: inherit;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: #d1fae5;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    footer {
+      background: #020617;
+      color: #94a3b8;
+      padding: 24px 0;
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 1000px) {
+      nav ul {
+        display: none;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .profile-grid,
+      .about-grid,
+      .product-grid,
+      .contact-grid,
+      .case-grid,
+      .team-grid,
+      .poster-grid,
+      .opinions-grid,
+      .writing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid,
+      .insights-grid,
+      .stack-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .metrics,
+      .services-grid,
+      .profile-facts,
+      .product-points,
+      .product-modules,
+      .results,
+      .insights-grid,
+      .stack-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 58px;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .summary-card,
+      .profile-card,
+      .info-card,
+      .team-card,
+      .case-card,
+      .contact-card,
+      .opinion-card,
+      .writing-card,
+      .poster-shell,
+      .ai-case-card {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#top" class="logo">
+        <div class="logo-mark">TT</div>
+        <span>TifawtTech</span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#company-profile">Company</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#product">Product</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#insights">Work</a></li>
+          <li><a href="#managers-guide">Manager’s Guide</a></li>
+          <li><a href="#opinions">Opinions</a></li>
+          <li><a href="#new-writing">Writing</a></li>
+          <li><a href="#legal-or-illegal">AI Rules</a></li>
+          <li><a href="#cases">Case Studies</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">ERP Implementation · Legacy Migration · Process Integration</div>
+          <h1>One ERP system for your entire business.</h1>
+          <p>
+            TifawtTech helps growing businesses move from spreadsheets, outdated software,
+            and manual processes to one structured ERP system. Our platform connects daily
+            operations, improves data accuracy, and gives managers a clear, real-time view
+            of the business.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#services">Explore ERP Services</a>
+            <a class="btn btn-secondary" href="#cases">See Case Studies</a>
+          </div>
+
+          <div class="metrics">
+            <div class="metric">
+              <strong>35%</strong>
+              <span>less manual work</span>
+            </div>
+            <div class="metric">
+              <strong>25%</strong>
+              <span>better data accuracy</span>
+            </div>
+            <div class="metric">
+              <strong>1</strong>
+              <span>connected ERP platform</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="visual-card" aria-label="ERP system visual">
+          <img
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
+            alt="Business analytics dashboard representing an ERP system"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="summary" id="summary">
+      <div class="container">
+        <div class="section-title">
+          <span>Executive Summary</span>
+          <h2>We connect departments, data, and daily operations.</h2>
+        </div>
+
+        <div class="summary-card">
+          <p>
+            Many businesses lose time and money because their departments rely on separate tools,
+            spreadsheets, and manual workflows. This leads to errors, delays, and poor visibility.
+          </p>
+          <p>
+            TifawtTech solves this by developing ERP systems that centralize finance, inventory,
+            sales, human resources, and reporting into one platform. We replace disconnected
+            processes with structured digital systems that improve efficiency and reduce operational
+            complexity.
+          </p>
+          <p>
+            Our focus is to deliver ERP systems that are practical, reliable, and used daily by real teams.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="profile-section" id="company-profile">
+      <div class="container">
+        <div class="section-title">
+          <span>Company Profile</span>
+          <h2>Who we are, who we serve, and how we deliver ERP value.</h2>
+          <p>
+            This section gives visitors a quick business overview of TifawtTech, our market focus,
+            and the way we approach ERP implementation projects.
+          </p>
+        </div>
+
+        <div class="profile-grid">
+          <div class="profile-card">
+            <h3>Company Overview</h3>
+            <p class="text-muted">
+              TifawtTech is an ERP software company focused on helping growing businesses replace
+              spreadsheets, disconnected tools, and outdated workflows with one structured business
+              platform. We design ERP systems around real operational needs, with a strong focus on
+              clarity, adoption, and measurable process improvement.
+            </p>
+
+            <div class="profile-facts">
+              <div class="fact-box">
+                <strong>Industry Focus</strong>
+                <span>ERP software for retail, logistics, and operational teams</span>
+              </div>
+              <div class="fact-box">
+                <strong>Main Offering</strong>
+                <span>ERP design, migration, implementation, and support</span>
+              </div>
+              <div class="fact-box">
+                <strong>Target Clients</strong>
+                <span>Small and mid-sized businesses with fragmented workflows</span>
+              </div>
+              <div class="fact-box">
+                <strong>Delivery Approach</strong>
+                <span>Analysis, build, migration, training, and optimization</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-card">
+            <h3>Why Clients Choose Us</h3>
+            <p class="text-muted">
+              We focus on practical ERP delivery. Instead of only describing technology, we connect
+              software decisions to business outcomes such as faster reporting, better data accuracy,
+              lower manual effort, and clearer operational visibility.
+            </p>
+
+            <div class="profile-facts">
+              <div class="fact-box">
+                <strong>Clear Scope</strong>
+                <span>Defined modules and realistic implementation phases</span>
+              </div>
+              <div class="fact-box">
+                <strong>Business Fit</strong>
+                <span>Systems designed around real workflows, not generic assumptions</span>
+              </div>
+              <div class="fact-box">
+                <strong>Technical Credibility</strong>
+                <span>React, Java Spring Boot, PostgreSQL, and REST integration</span>
+              </div>
+              <div class="fact-box">
+                <strong>Usability</strong>
+                <span>Dashboards and interfaces designed for daily use by teams</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <span>About Us</span>
+          <h2>ERP solutions designed around real business workflows.</h2>
+          <p>
+            TifawtTech is an ERP software company focused on transforming complex business operations
+            into structured digital systems.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="info-card">
+            <h3>What we do</h3>
+            <p class="text-muted">
+              We analyze how businesses currently operate, identify inefficiencies, and design ERP
+              solutions tailored to real workflows. Our work includes system architecture, data migration,
+              integration, and user support.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <h3>Why it matters</h3>
+            <p class="text-muted">
+              Our goal is to replace manual processes and disconnected tools with a system that improves
+              accuracy, transparency, and operational control across the business.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-title">
+          <span>ERP Services</span>
+          <h2>Built around the full implementation journey.</h2>
+          <p>
+            From process analysis to system support, our services are focused on making ERP adoption clear,
+            structured, and useful for everyday business operations.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"></path><path d="M7 15l4-4 3 3 6-7"></path></svg></div>
+            <h3>Business Process Analysis</h3>
+            <p>We analyze existing workflows, identify inefficiencies, and define clear ERP requirements.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.7 1.7 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.07V21a2 2 0 1 1-4 0v-.09A1.7 1.7 0 0 0 9 19.4a1.7 1.7 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.07-.4H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.07V3a2 2 0 1 1 4 0v.09A1.7 1.7 0 0 0 15 4.6a1.7 1.7 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9c.24.3.45.65.6 1 .11.32.2.69.2 1.09s-.09.77-.2 1.09c-.15.35-.36.7-.6 1Z"></path></svg></div>
+            <h3>ERP System Design & Development</h3>
+            <p>We build ERP systems that integrate finance, inventory, sales, HR, and reporting.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 3l4 4-4 4"></path><path d="M3 7h18"></path><path d="M7 21l-4-4 4-4"></path><path d="M21 17H3"></path></svg></div>
+            <h3>Legacy System Migration</h3>
+            <p>We move businesses from spreadsheets, paper systems, or outdated software to modern ERP.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"></path></svg></div>
+            <h3>Data Migration & Structuring</h3>
+            <p>We clean, organize, and transfer existing business data into structured ERP databases.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7V3"></path><path d="M15 7V3"></path><path d="M8 11h8"></path><path d="M12 11v10"></path><path d="M7 7h10v2a5 5 0 0 1-5 5 5 5 0 0 1-5-5V7Z"></path></svg></div>
+            <h3>ERP Implementation & Integration</h3>
+            <p>We deploy ERP systems and integrate them with tools such as accounting or CRM systems.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10l-10 5L2 10l10-5 10 5Z"></path><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"></path></svg></div>
+            <h3>User Training & Support</h3>
+            <p>We provide training, documentation, and optimization as business needs evolve.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="product">
+      <div class="container">
+        <div class="section-title">
+          <span>Product</span>
+          <h2>One ERP platform built to organize the entire business.</h2>
+          <p>
+            Our ERP system brings finance, inventory, sales, HR, and reporting into one structured environment
+            so teams can work faster, with better data and fewer manual steps.
+          </p>
+        </div>
+
+        <div class="product-grid">
+          <div class="product-card">
+            <div>
+              <h3>A single source of truth for daily operations.</h3>
+              <p>
+                TifawtTech ERP reduces complexity by replacing scattered tools with one reliable system.
+                Managers gain visibility, teams save time, and business data stays consistent across departments.
+              </p>
+            </div>
+
+            <div class="product-points">
+              <div class="product-point">Real-time business data</div>
+              <div class="product-point">Fewer manual processes</div>
+              <div class="product-point">Clear operational visibility</div>
+              <div class="product-point">Scalable modular structure</div>
+            </div>
+          </div>
+
+          <div class="product-visual">
+            <img
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
+              alt="ERP system dashboard on a laptop screen"
+            />
+            <div class="product-modules">
+              <div class="product-module">Finance Management</div>
+              <div class="product-module">Inventory Control</div>
+              <div class="product-module">Sales Tracking</div>
+              <div class="product-module">HR Management</div>
+              <div class="product-module">Reporting Dashboard</div>
+              <div class="product-module">Data Migration</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stack" id="stack">
+      <div class="container">
+        <div class="section-title">
+          <span>Technology Stack</span>
+          <h2>Reliable technology for business-critical ERP systems.</h2>
+          <p>
+            Our stack is simple, realistic, and suitable for scalable enterprise-style systems.
+          </p>
+        </div>
+
+        <div class="stack-grid">
+          <div class="stack-item">
+            <strong>React</strong>
+            <span>Front-End</span>
+          </div>
+          <div class="stack-item">
+            <strong>Java Spring Boot</strong>
+            <span>Back-End</span>
+          </div>
+          <div class="stack-item">
+            <strong>PostgreSQL</strong>
+            <span>Database</span>
+          </div>
+          <div class="stack-item">
+            <strong>REST APIs</strong>
+            <span>Integration</span>
+          </div>
+          <div class="stack-item">
+            <strong>Modular ERP</strong>
+            <span>Architecture</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="team">
+      <div class="container">
+        <div class="section-title">
+          <span>The Team</span>
+          <h2>A focused team delivering ERP systems from architecture to user experience.</h2>
+        </div>
+
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="avatar">IG</div>
+            <h3>Ishak Gairaa</h3>
+            <div class="role">ERP System Architect & Back-End Developer</div>
+            <p class="text-muted">
+              Designs and develops the core ERP architecture, including business logic, database structure,
+              and system integrations. Ensures the system is scalable, reliable, and aligned with real business workflows.
+            </p>
+
+            <div class="chips">
+              <span class="chip">Java Spring Boot</span>
+              <span class="chip">REST APIs</span>
+              <span class="chip">PostgreSQL</span>
+              <span class="chip">Data Modeling</span>
+              <span class="chip">ERP Architecture</span>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <div class="avatar">YK</div>
+            <h3>Yunis Kazimli</h3>
+            <div class="role">ERP UI/UX & Front-End Developer</div>
+            <p class="text-muted">
+              Designs user-friendly ERP dashboards and interfaces that support daily business operations.
+              Focuses on usability, performance, and clear data presentation for non-technical users.
+            </p>
+
+            <div class="chips">
+              <span class="chip">React</span>
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">Dashboard Design</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="matrix">
+          <table>
+            <thead>
+              <tr>
+                <th>Skill / Capability</th>
+                <th>Ishak</th>
+                <th>Yunis</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ERP System Architecture</td>
+                <td>✓</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Java Spring Boot Backend</td>
+                <td>✓</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Database Design & PostgreSQL</td>
+                <td>✓</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>React Front-End Development</td>
+                <td></td>
+                <td>✓</td>
+              </tr>
+              <tr>
+                <td>ERP Dashboard Design</td>
+                <td></td>
+                <td>✓</td>
+              </tr>
+              <tr>
+                <td>System Integration</td>
+                <td>✓</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Business Workflow Understanding</td>
+                <td>✓</td>
+                <td>✓</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="insights" id="insights">
+      <div class="container">
+        <div class="section-title">
+          <span>Work & Insights</span>
+          <h2>A space to show our work, thinking, and ERP expertise.</h2>
+          <p>
+            This section acts like a blog or knowledge hub where we can publish project highlights,
+            implementation lessons, and ERP best practices for future clients.
+          </p>
+        </div>
+
+        <div class="insights-grid">
+          <article class="insight-card">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" alt="Business team discussing workflow improvement and ERP planning" />
+            <div class="insight-body">
+              <div class="insight-tag">Implementation Guide</div>
+              <h3>Moving from spreadsheets to an ERP system</h3>
+              <p>
+                A practical overview of how businesses can move from manual spreadsheets to a more structured ERP environment with less disruption.
+              </p>
+            </div>
+          </article>
+
+          <article class="insight-card">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="Analytics dashboard representing ERP reporting and operational visibility" />
+            <div class="insight-body">
+              <div class="insight-tag">ERP Modules</div>
+              <h3>Which ERP modules should a growing company start with?</h3>
+              <p>
+                A short guide explaining why finance, inventory, reporting, and sales are often the strongest starting points for ERP adoption.
+              </p>
+            </div>
+          </article>
+
+          <article class="insight-card">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80" alt="Professionals reviewing business documents before data migration" />
+            <div class="insight-body">
+              <div class="insight-tag">Data Migration</div>
+              <h3>Preparing business data before ERP migration</h3>
+              <p>
+                Common data problems before implementation, and why cleanup, structure, and validation matter before moving into a new system.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="poster-section" id="managers-guide">
+      <div class="container">
+        <div class="section-title">
+          <span>Featured Poster</span>
+          <h2>The Manager’s Guide</h2>
+          <p>
+            This poster explains what effective management means to us: clear expectations, practical leadership habits,
+            and better decision-making supported by structured business systems.
+          </p>
+        </div>
+
+        <div class="poster-shell">
+          <div class="poster-header">
+            <span>Information Poster</span>
+            <h2>The Manager’s Guide</h2>
+            <p>Key expectations of a modern manager — and practical ways to achieve them in a real business environment.</p>
+          </div>
+
+          <div class="poster-grid">
+            <div class="poster-column">
+              <h3>What managers are expected to do</h3>
+              <div class="poster-list">
+                <div class="poster-item">
+                  <strong>Clear Communication</strong>
+                  <span>Explain goals, priorities, and expectations in a way the team can follow.</span>
+                </div>
+                <div class="poster-item">
+                  <strong>Good Planning</strong>
+                  <span>Set priorities, organize work, and manage time and resources effectively.</span>
+                </div>
+                <div class="poster-item">
+                  <strong>Smart Decision-Making</strong>
+                  <span>Use reliable information to make decisions that support business goals.</span>
+                </div>
+                <div class="poster-item">
+                  <strong>Team Leadership</strong>
+                  <span>Motivate people, build trust, and create an environment where work gets done well.</span>
+                </div>
+                <div class="poster-item">
+                  <strong>Problem-Solving</strong>
+                  <span>Respond to challenges calmly and find practical, realistic solutions.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="poster-column">
+              <h3>How managers can achieve these goals</h3>
+              <div class="poster-list">
+                <div class="poster-item">
+                  <strong>Set Clear Goals</strong>
+                  <span>Define short-term and long-term objectives that the team understands.</span>
+                </div>
+                <div class="poster-item">
+                  <strong>Listen Actively</strong>
+                  <span>Understand team feedback, operational issues, and client needs before acting.</span>
+                </div>
+                <div class="poster-item">
+                  <strong>Use Data and Tools</strong>
+                  <span>Work with reports, dashboards, and ERP systems to improve visibility and control.</span>
+                </div>
+                <div class="poster-item">
+                  <strong>Support Teamwork</strong>
+                  <span>Encourage collaboration, accountability, and regular feedback across the team.</span>
+                </div>
+                <div class="poster-item">
+                  <strong>Keep Learning</strong>
+                  <span>Improve leadership, communication, and business understanding over time.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="poster-footer">
+            At TifawtTech, we believe effective management is supported by clear processes, reliable data, and connected systems.
+            A strong ERP platform helps managers lead with better structure, faster insight, and more confident decisions.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="opinions-section" id="opinions">
+      <div class="container">
+        <div class="section-title">
+          <span>Group Writing</span>
+          <h2>Short opinions on technology and its risks.</h2>
+          <p>
+            This section includes two short opinion texts that reflect our personal views on technology,
+            digital risks, and how people interact with modern systems.
+          </p>
+        </div>
+
+        <div class="opinions-grid">
+          <article class="opinion-card">
+            <div class="opinion-meta">
+              <span class="opinion-badge">SWOT & Technology</span>
+              <span class="opinion-author">By Yunis Kazimli</span>
+            </div>
+
+            <h3>What are the benefits and risks of constantly improving technology?</h3>
+
+            <p>
+              Technology is constantly changing, and in many ways that is a good thing. New tools, smarter systems,
+              and better devices make daily life easier and more efficient. We can communicate faster, study online,
+              automate work, and solve problems that were much harder in the past. In business, for example, modern
+              technology helps companies save time, reduce mistakes, and make better decisions through data. For these
+              reasons, I believe technological progress is necessary and mostly positive.
+            </p>
+            <p>
+              However, every improvement also brings risks. A simple SWOT analysis shows this clearly. The strengths of
+              evolving technology are speed, efficiency, innovation, and better access to information. The weaknesses
+              include dependence on devices, reduced face-to-face communication, and the fact that not everyone can keep
+              up with rapid change. The opportunities are very exciting: smarter healthcare, better education, cleaner
+              industry, and more flexible work. On the other hand, the threats are serious, especially cybercrime,
+              privacy issues, job loss through automation, and the spread of misinformation.
+            </p>
+            <p>
+              For me, the most important part of this SWOT analysis is the threats. Technology develops faster than many
+              people can understand or control. This means that systems become more powerful, but also more vulnerable.
+              A security problem in one device or platform can affect thousands or even millions of users. The same
+              innovation that improves life can also create dependence and new dangers.
+            </p>
+            <p>
+              Overall, I think technology should continue to improve, but not without responsibility. Progress is valuable
+              only when it is combined with security, ethics, and human awareness. In my opinion, the goal should not
+              simply be more technology, but better technology that people can actually trust.
+            </p>
+          </article>
+
+          <article class="opinion-card">
+            <div class="opinion-meta">
+              <span class="opinion-badge">Devices & Vulnerabilities</span>
+              <span class="opinion-author">By Ishak Gairaa</span>
+            </div>
+
+            <h3>My opinion on today’s technologies and their vulnerabilities</h3>
+
+            <p>
+              Today’s technologies are everywhere. Most people use their phones and laptops from morning until night,
+              often without even thinking about how much personal information they store on them. I think modern technology
+              is extremely useful, and I would not want to live without it. It helps me study, communicate, organize my work,
+              and access information in seconds. At the same time, I am aware that these devices also have vulnerabilities,
+              and I try not to ignore them.
+            </p>
+            <p>
+              In my opinion, one of the biggest problems is that people become too comfortable with technology. We use the
+              same apps every day, so they start to feel harmless. But in reality, our devices can be exposed to data leaks,
+              phishing attacks, malware, weak passwords, or unsafe networks. Even something simple like clicking on the wrong
+              link or downloading the wrong file can create problems. That is why I think it is important to be careful, even
+              during normal daily use.
+            </p>
+            <p>
+              I would not say that I am paranoid, but I do pay attention. I try to update my software regularly, use stronger
+              passwords, and avoid suspicious websites or public Wi-Fi when possible. I know that no device is ever completely
+              safe, but basic habits can reduce many risks. For me, awareness is already an important form of protection.
+            </p>
+            <p>
+              So, I do not ignore technological vulnerabilities. I accept that they are part of using modern devices.
+              Technology gives us convenience, speed, and many opportunities, but it also requires responsibility. In the end,
+              I think the best attitude is to enjoy the advantages of technology while staying realistic about its weaknesses.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="new-writing-section" id="new-writing">
+      <div class="container">
+        <div class="section-title">
+          <span>Portfolio Writing</span>
+          <h2>AI, Learning, and Digital Identity</h2>
+          <p>
+            This section includes two short writing tasks by Ishak Gairaa. The first text reflects on the TED Talk about AI and learning.
+            The second text discusses the future of authentication methods by 2040.
+          </p>
+        </div>
+
+        <div class="writing-grid">
+          <article class="writing-card">
+            <div class="writing-meta">
+              <span class="writing-badge">TED Talk Reflection</span>
+              <span class="writing-author">By Ishak Gairaa</span>
+            </div>
+
+            <h3>Is AI Making Us Dumber? My Opinion</h3>
+
+            <p>
+              After watching Charlie Gedeon’s TEDx talk, I do not think the main problem is that AI automatically makes people dumber.
+              For me, the bigger problem is how people use it. AI can be a very useful tool, but it can also make students avoid the hard
+              parts of learning if they are not careful.
+            </p>
+            <p>
+              One point I found interesting is the idea of cognitive offloading. This means that we give some of our thinking to a tool
+              instead of doing it ourselves. I think this happens often with AI. For example, if a student asks AI to explain a topic after
+              trying to understand it first, that can be helpful. But if the student simply asks AI for the final answer and copies it,
+              then the learning process becomes weaker.
+            </p>
+            <p>
+              I also agree with the speaker that education often rewards results more than learning. Many students focus on grades, deadlines,
+              and passing exams. In that situation, AI becomes very tempting because it gives fast answers. The problem is that fast answers
+              do not always mean real understanding.
+            </p>
+            <p>
+              In my opinion, AI should be used more like a training partner than a replacement for thinking. It can ask questions, give examples,
+              check grammar, or explain difficult ideas. However, students should still verify information, compare sources, and develop their
+              own arguments.
+            </p>
+            <p>
+              So, I would not say AI is making us dumber by itself. It depends on our habits. If we use AI passively, we may lose skills.
+              If we use it actively and critically, it can actually help us learn better.
+            </p>
+          </article>
+
+          <article class="writing-card">
+            <div class="writing-meta">
+              <span class="writing-badge">Digital Identity Essay</span>
+              <span class="writing-author">By Ishak Gairaa</span>
+            </div>
+
+            <h3>What Will Replace Today’s Authentication Methods by 2040?</h3>
+
+            <p>
+              By 2040, I think today’s authentication methods will not be replaced by one single technology, but by a combination of several
+              methods working together in the background. Passwords will probably become much less important, because they are easy to forget,
+              reuse, steal, or attack through phishing. Even today, many people are already tired of managing too many passwords.
+            </p>
+            <p>
+              In my opinion, the future will be based on continuous and multi-factor authentication. This means that a system will not only check
+              who you are once at the login screen. Instead, it may continue to check your identity quietly while you use the device. This could
+              include biometrics such as face recognition, fingerprint scanning, voice patterns, and maybe even behavior-based signals like how
+              you type, move the mouse, hold your phone, or walk.
+            </p>
+            <p>
+              I do not think biometrics alone should replace everything. They are convenient, but they also create privacy risks. If a password
+              is stolen, you can change it. If biometric data is stolen, you cannot change your face or fingerprint. That is why future authentication
+              should combine biometrics with device security, encryption, and user control.
+            </p>
+            <p>
+              By 2040, the best authentication system should be secure but also simple for normal users. People should not feel like security is a
+              constant obstacle. At the same time, they should still have the right to know what data is collected and how it is protected.
+            </p>
+            <p>
+              So, I believe the future is not just &quot;passwordless&quot;. It is smarter, more invisible, and more personal authentication but only
+              if privacy and choice are taken seriously.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="traffic-section" id="legal-or-illegal">
+      <div class="container">
+        <div class="section-title">
+          <span>AI in Academia</span>
+          <h2>Legal or Illegal?</h2>
+          <p>
+            Three academic situations based on the traffic light model: one acceptable, one questionable, and one clearly inappropriate.
+          </p>
+        </div>
+
+        <div class="traffic-intro">
+          Read each scenario first. Then click “Show category” to reveal whether the AI use is green, yellow, or red.
+        </div>
+
+        <div class="ai-case-card">
+          <div class="case-tag">Case 01 · AI in Academia</div>
+          <h3>Using AI to create revision questions from personal lecture notes</h3>
+          <p>
+            A student attends class, takes notes, and studies the topic independently. After that, the student uses an AI tool
+            to turn their own lecture notes into quiz questions for revision before the exam.
+          </p>
+
+          <button class="toggle-btn" onclick="toggleCase('case1', this)">Show category</button>
+
+          <div class="case-result green" id="case1">
+            <h4>GREEN: Acceptable use that supports learning</h4>
+            <p>
+              This is acceptable because the student is still doing the learning and creating the original material.
+              AI is only used as a revision helper and does not replace the student’s own work.
+            </p>
+            <p>
+              <strong>What green means:</strong> AI supports the learning process without replacing independent thinking or academic effort.
+            </p>
+          </div>
+        </div>
+
+        <div class="ai-case-card">
+          <div class="case-tag">Case 02 · AI in Academia</div>
+          <h3>Using AI to suggest the structure of a research paper</h3>
+          <p>
+            A student has already read the sources and written down ideas, but then asks AI to suggest a better structure
+            for the final paper and possible section headings.
+          </p>
+
+          <button class="toggle-btn" onclick="toggleCase('case2', this)">Show category</button>
+
+          <div class="case-result yellow" id="case2">
+            <h4>YELLOW: Use with caution</h4>
+            <p>
+              This can be helpful for organization, but it becomes questionable if the student lets AI shape the whole argument
+              or relies on it too heavily. The final structure and academic reasoning should still be the student’s own.
+            </p>
+            <p>
+              <strong>What yellow means:</strong> AI may be useful, but it must not weaken the student’s own thinking,
+              judgment, or academic responsibility.
+            </p>
+          </div>
+        </div>
+
+        <div class="ai-case-card">
+          <div class="case-tag">Case 03 · AI in Academia</div>
+          <h3>Submitting an AI-written discussion section in a lab report</h3>
+          <p>
+            A student uploads lab results to an AI tool, asks it to write the discussion and conclusion, changes only a few words,
+            and submits the report without telling the instructor.
+          </p>
+
+          <button class="toggle-btn" onclick="toggleCase('case3', this)">Show category</button>
+
+          <div class="case-result red" id="case3">
+            <h4>RED: Inappropriate academic use</h4>
+            <p>
+              This is inappropriate because the discussion and conclusion are a central part of the student’s own analysis.
+              Submitting AI-written academic content as personal work is misleading and violates academic integrity.
+            </p>
+            <p>
+              <strong>What red means:</strong> AI replaces the student’s own academic work and crosses the boundary of acceptable use.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cases" id="cases">
+      <div class="container">
+        <div class="section-title">
+          <span>Case Studies</span>
+          <h2>Selected ERP projects using the STAR method.</h2>
+          <p>
+            Each case study focuses on the business problem, our task, the action we took, and the result.
+          </p>
+        </div>
+
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>ERP Implementation for Retail Business</h3>
+
+            <div class="star-block">
+              <p><strong>Situation:</strong> The company managed inventory, sales, and employee records using spreadsheets, causing errors and delays.</p>
+            </div>
+            <div class="star-block">
+              <p><strong>Task:</strong> Implement an ERP system to centralize operations.</p>
+            </div>
+            <div class="star-block">
+              <p><strong>Action:</strong> We developed ERP modules for inventory control, sales tracking, employee management, and automated reporting using a Java Spring Boot backend, PostgreSQL database, and a React-based dashboard. Existing data was migrated into a structured system.</p>
+            </div>
+            <div class="star-block">
+              <p><strong>Result:</strong> The company reduced manual work, improved data accuracy, and saved operational time every day.</p>
+            </div>
+
+            <div class="results">
+              <div class="result-box">35%<span>less manual work</span></div>
+              <div class="result-box">25%<span>better accuracy</span></div>
+              <div class="result-box">2h<span>saved per day</span></div>
+            </div>
+          </div>
+
+          <div class="case-card">
+            <h3>ERP Migration for Logistics Company</h3>
+
+            <div class="star-block">
+              <p><strong>Situation:</strong> The company used multiple disconnected systems to manage orders, staff, and financial data.</p>
+            </div>
+            <div class="star-block">
+              <p><strong>Task:</strong> Replace existing tools with a unified ERP system.</p>
+            </div>
+            <div class="star-block">
+              <p><strong>Action:</strong> We implemented an ERP platform integrating order tracking, staff management, and reporting, using Java backend services and a centralized PostgreSQL database. Data from legacy systems was migrated into the new system.</p>
+            </div>
+            <div class="star-block">
+              <p><strong>Result:</strong> The company improved workflow efficiency, reduced administrative workload, and increased visibility across operations.</p>
+            </div>
+
+            <div class="results">
+              <div class="result-box">40%<span>better workflow</span></div>
+              <div class="result-box">Lower<span>admin workload</span></div>
+              <div class="result-box">Higher<span>visibility</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <div class="section-title">
+            <span>Contact</span>
+            <h2>Let’s improve your business operations.</h2>
+            <p>
+              Tell us which processes are slow, manual, or difficult to manage. We will propose a structured ERP solution tailored to your business.
+            </p>
+          </div>
+
+          <div class="contact-line">Email: info@tifawttechsolutions.com</div>
+          <div class="contact-line">Phone: +49 123 456 789</div>
+          <div class="contact-line">Location: Germany</div>
+        </div>
+
+        <div class="contact-card">
+          <form>
+            <input type="text" placeholder="Name" aria-label="Name" />
+            <input type="text" placeholder="Company" aria-label="Company" />
+            <input type="email" placeholder="Work email" aria-label="Work email" />
+            <textarea placeholder="What ERP problem would you like to solve?" aria-label="Message"></textarea>
+            <button class="btn btn-primary" type="button">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 TifawtTech. ERP software portfolio project.
+    </div>
+  </footer>
+
+  <script>
+    function toggleCase(id, button) {
+      const box = document.getElementById(id);
+      box.classList.toggle("show");
+
+      if (box.classList.contains("show")) {
+        button.textContent = "Hide category";
+      } else {
+        button.textContent = "Show category";
+      }
+    }
+  </script>
+</body>
+</html>
